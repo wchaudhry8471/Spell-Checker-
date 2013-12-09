@@ -1,0 +1,22 @@
+0.  This is the longest word present in the defined large dictionary. 
+1.  It returns the statistics for the resource usage measures like calling a process or thread. 
+2.  There are two variables, int who and struct rusage *usage
+3.  So that any changes or overwrites that are made do not end up altering the actual value of the statistics. 
+Since we are passing by reference, any alterations or deletions made will not affect the actual values themselves, only a copy. 
+4.  The loop initialzies by taking the opened file and returns an unsigned char cast as
+as int, or EOF. The line is read character by character until EOF is reached. Upon each char it checks
+whether the char is alphabetic. If true, it will add characters to this word to the end of the array.
+Followed by which it will increment the index by 1. Thus it moves to the next empty slot in the array. Once the alphabetic string is consumed, index is set to 
+0 and it moves onto the next word. IF it encounters a number/ EOF it again prepares for a new word. 
+While the index is larger than 0, the loop also checks if it has touched a null terminator, in which case, the word variable is 
+updated to demosntrate that a word is complete. It will check whether this function is mispelled through
+the boolean function. If it is mispelled, it will print to the screen and update the mispelling index. Ultimately, setting index to 0 
+again and moving on to check the next word. 
+5.  Scanning each individual char gives you better control and is more efficient in checking whether there is an alphanumeric number present and where exactly
+the mispelling occurs, whereas checking the entire word with fscanf prevents you from doing this. 
+6.  The compiler wont allow for something declared as const to be modified. We are in a way optimizig hte code
+by preventing it from changing the local values of load and check. Essentially, Check and load don't need to be changed. 
+7.  A chained hash table was used in which the maximum number of buckets were placed and each bucket contained a series of nodes in which would be added the appropriate word based on the hash function used. 
+8.  The code was about half the speed when the original hash function was less than optimal. After implementing the djb2 hash, the speed doubled.
+9.  The primary changes occurred with the hash function in attempting to optimize it to this code. 
+10. The biggest bottleneck that I could not overcome was altering the load file which had used fscanf within a while loop, rather than obtaining it as a constant int and then checking for end of line within a for loop. This would have been much less expensive and may have saved a bunch more time. 
